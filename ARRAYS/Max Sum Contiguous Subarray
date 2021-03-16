@@ -1,0 +1,13 @@
+Find the contiguous subarray within an array, A of length N which has the largest sum.
+
+logic:kadanes algorithm
+
+int Solution::maxSubArray(const vector<int> &A) {
+    int omax = A[0];
+    int cmax = A[0];
+    for(int i=1;i<A.size();i++){
+        cmax = max(A[i],A[i]+cmax);
+        omax = max(omax,cmax);
+    }
+    return omax;
+}
